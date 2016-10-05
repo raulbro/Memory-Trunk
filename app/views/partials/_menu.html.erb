@@ -1,0 +1,27 @@
+<%#  MENU PARTIAL %>
+
+<%#<div class="row">
+	<span>Welcome Back <%= current_user.name %>
+<%#
+<div class="row">
+		<button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Menu</button><br>
+	<ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+		<li><a href="#">Videos</a></li>
+		<li><a href="#">Personal Journal</a></li>
+		<li><a href="#">Pictures</a></li>
+	</ul>
+</div>
+%>
+<br />
+<div class="row">
+	<div class="col s8 offset-s2 ">
+		<nav class="breadcrumbs">
+			<strong><%= link_to 'Dashboard', dashboards_index_path %></strong>
+	  		<strong><%= link_to 'Profile', profiles_index_path %></strong>
+	  		<strong><%= link_to 'Pictures', pictures_index_path %></strong>
+	  		<strong><%= link_to 'Videos', videos_index_path %></strong>
+	  		<strong><%= link_to 'Journal', examples_path %></strong>
+		</nav>
+	</div>
+</div>
+

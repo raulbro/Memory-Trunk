@@ -1,0 +1,98 @@
+<%# #PROFILE EDIT %>
+
+<%= javascript_include_tag "profile" %>
+<%= render 'partials/menu' %>
+<br />
+
+<div class="row">
+	<div class="large-12 columns">
+		<div class="radius right">
+			<%= link_to "Back to profile", "index", class:"button radius Obutton-profile"%>
+		</div>
+	</div>
+</div>
+
+<%= form_for @profile, multipart: true, :url => {action: "update"} do |f| %> 
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="large-6 columns ">
+				<div class="large-12 columns panel Opanel-style">
+					<%= image_tag @profile.profile_picture.url(:square) %>
+					<br /> <br />
+					<div class="large-8 columns">
+						<strong> <%= f.label "Profile picture" %></strong>
+						<%= f.file_field :profile_picture %>
+					</div>
+					<div class="large-4 columns">
+						<strong> <%= f.label "Born in: " %> </strong>
+					</div>
+					<div class="large-8 columns">
+						<%= f.text_field :city_born %>
+					</div>
+					<div class="large-4 columns">
+						<strong> <%= f.label "Date of birth: " %>  </strong>
+					</div>
+					<div class="large-8 columns">
+						<%= @profile.date_of_birth %>				
+					</div>
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Fears: "%>  </strong>
+					</div><br /><br />
+					<div class="large-12 columns">
+						<%= f.text_area :fear, class:"Otext-area-height" %>
+					</div>
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Jobs: "%>  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= f.text_area :job_history, class:"Otext-area-height"  %>
+					</div>		
+				</div>
+			</div>
+			<div class="large-6 columns ">
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Biography: " %>  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= f.text_area :biography, class:"Otext-area-height"  %>
+					</div>		
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Hobbies: "%>  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= f.text_area :hobbie, class:"Otext-area-height"  %>
+					</div>		
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Dreams: "%>  </strong>
+					</div><br /><br />
+					<div class="large-12 columns">
+						<%= f.text_area :dream, class:"Otext-area-height"  %>
+					</div>	
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> <%= f.label "Other: " %>  </strong>
+					</div>
+					<div class="large-12 columns Osafe-text">
+						<%= f.text_area :other, class:"Otext-area-height"  %>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class=" callout large-12 columns">
+			<%= f.submit "Save", class:"button right" %>
+		</div>
+	</div>  
+<%end%>

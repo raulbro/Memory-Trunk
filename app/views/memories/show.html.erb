@@ -1,0 +1,23 @@
+<div class="container">
+	<h1 class="h1_title purple-text darken-3">My Memory</h1>
+	
+	<div class="row">
+	</div>
+	<div class="row">
+		<% @memory.pictures.each  do |picture| %> 
+			<div class="col s6 m3">
+			asd
+				<%= image_tag picture.picture_data.url(:medium), class:"materialboxed responsive-img"%>
+			</div>
+		<% end %>
+		<div class="col s6 m3">
+			<div>
+				<%= image_tag @memory.memory_display_picture.url(:medium), class:"materialboxed responsive-img"%>
+			</div>
+				Memory Title: <%= @memory.memory_title %>
+			<div>
+				Memory Description <%= @memory.memory_description %>
+			</div>
+		</div>
+	</div>
+</div>

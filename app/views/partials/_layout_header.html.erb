@@ -1,0 +1,39 @@
+<nav class="default-primary-color" role="navigation">
+  <div class="nav-wrapper container">
+    
+    <% if user_signed_in? %>
+        <%= link_to root_path do%>
+            <%= image_tag "MemoryTrunkIcon.png", class:"menu-logo brand-logo" %>
+        <% end %>
+    <% else %>
+        <%= link_to root_path do%>
+            <%= image_tag "MemoryTrunkIcon.png", class:"menu-logo brand-logo" %>
+        <% end %>
+    <% end %>
+    
+    <ul class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li><%= link_to "Dashboard", dashboards_index_path%></li>
+        <li><%= link_to "Memories", memories_index_path%></li>
+        <li><%= link_to "My account", edit_user_registration_path, class:""%></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class:"" %></li>
+      <% else %>
+         <li><%= link_to "Log in", new_user_session_path, class:""%></li>
+      <% end %>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <% if user_signed_in? %>
+         <li><%= link_to "Dashboard", dashboards_index_path%></li>
+         <li><%= link_to "Memories", memories_index_path%></li>
+         <li><%= link_to "My account", edit_user_registration_path%></li>
+         <li><%= link_to "Log out", destroy_user_session_path, method: :delete%></li>
+      <% else %>
+         <li><%= link_to "Log in", new_user_session_path%></li>
+         <li><a href="#">About Us</a></li>
+         <li><a href="#">Terms and Conditions</a></li>
+      <% end %>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>

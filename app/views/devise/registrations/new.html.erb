@@ -1,0 +1,54 @@
+<%# SIG UP %>
+<div class="container">
+  <h1 class="h1_title">Sign Up</h1>
+  <div class="row">
+    <div class="col s12">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.text_field :name, :value => "", id: "first_name", class:"validate", required:"required" %>
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.text_field :last_name, :value => "", id:"last_name", class:"validate", required:"required" %>
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.email_field :email, :value => "", id:"email", class:"validate", required:"required" %>
+          <label for="email" data-error="Invalid email format">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.password_field :password, :value => "", id:"password", autocomplete: "off", class:"", required:"required" %>
+          <% if @minimum_password_length %>
+            <label for="password">Password (<%= @minimum_password_length %> characters minimum)</label>
+          <% else %>
+            <label for="password">Password</label>
+          <% end %>
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.password_field :password_confirmation, :value => "", id: "password_confirmation", autocomplete: "off", class:"", required:"required" %>
+          <label for="password_confirmation">Confirm Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= button_tag( :class => "waves-effect waves-light btn green") do %>
+            Sign up <i class="material-icons right">done</i>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= link_to "I already have an account", new_session_path(resource_name), class:"" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

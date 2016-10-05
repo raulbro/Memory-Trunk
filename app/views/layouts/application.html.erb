@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title><%= content_for?(:title) ? yield(:title) : "Memory Trunk" %></title>
+    <!--Import Google Icon Font-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    "application" %>
+    <%= csrf_meta_tags %>
+</head>
+
+<body>
+	<%= render 'partials/layout_header' %>
+	<main>
+	  <%= yield %>
+	</main>
+	<%= render 'partials/layout_footer' %>
+   
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<%# EDIT ACCOUNT%>
+<div class="container">
+  <h1 class="h1_title">Edit Account</h1>
+  <div class="row">
+    <div class="col s12">
+    
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <div class="row">
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <i class="material-icons yellow-text darken-4">info_outline</i>
+          <span class="info-text yellow-text darken-4">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
+        <% end %>
+        
+        <div class="input-field col s12 m6">
+          <%= f.email_field :email, id: "email", class: "validate" %>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.password_field :password, autocomplete: "off", id: "new_password", class: "calidate" %>
+          <label for="new_password">New password <i>(leave blank if you don't want to change it)</i></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.password_field :password_confirmation, autocomplete: "off", id: "new_password_confirm", class: "calidate" %>
+          <label for="new_password_confirm">Confirm your new password</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col s12">
+          <i class="material-icons blue-text">info_outline</i>
+          <span class="info-text blue-text">We need your current password to confirm your changes:</span>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.password_field :password_confirmation, autocomplete: "off", id: "current_password", class: "calidate" %>
+          <label for="current_password">Current password</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= button_tag( :class => "waves-effect waves-light btn green") do %>
+            Update <i class="material-icons right">done</i>
+          <% end %>
+        </div>
+      </div>
+      
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+ <%# <h3>Cancel my account</h3>
+ <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>

@@ -1,0 +1,69 @@
+<%-# THIS IS THE HOME PAGE-%>
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <%= image_tag "allmediaoneplace.jpg", class:"responsive-img"%>
+      <div class="caption right-align">
+        <h4 >Finally one place for all media!</h4>
+<!--         <h5 class="light grey-text text-lighten-3">Finally one place for all media!</h5>
+ -->      </div>
+    </li>
+    <li>
+      <%= image_tag "family.jpg", class:"responsive-img"%>
+      <div class="caption left-align">
+        <h4>Store, share, and pass down memories</h3>
+<!--         <h4 class="light grey-text text-lighten-3">Store, share, and pass down memories</h4>
+ -->      </div>
+    </li>
+    <li>
+      <%= image_tag "kid.jpg", class:"responsive-img"%>
+      <div class="caption right-align">
+        <h4 >Use videos to make your memories personal</h4>
+<!--         <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+ -->      </div>
+    </li>
+    <li>
+      <%= image_tag "security.jpg", class:"responsive-img"%>
+      <div class="caption right-align">
+        <h4>Your memories' security is our #1 priority</h4>
+<!--         <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+ -->      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="row center">
+    <%= link_to "Get started", new_user_registration_path, class:"waves-effect waves-light btn-large green darken-1 get-started"%>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 l6">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Nkw3nQKO_GE" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col s12 l6">
+        <div class="row">
+          <div class="col s6">
+            <%= image_tag "women.jpg", class:"responsive-img"%>
+          </div>
+          <div class="col s6">
+            <h4 class="secondary-text-color">See our website before you sign up</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s6">
+            <%= image_tag "books.jpg", class:"responsive-img"%>
+          </div>
+          <div class="col s6">
+            <h4 class="secondary-text-color">Discover other resources for preserving your family memories</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

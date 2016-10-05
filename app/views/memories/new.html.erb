@@ -1,0 +1,68 @@
+<div class="container">
+	<h1 class="h1_title">New Memory</h1>
+	
+	<%= form_for @memory, :url => {action: "create"}, :html => { :multipart => true} do |f| %>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.text_field :memory_title, :value => "", id:"title", class:"validate", required:"required" %>
+          <label for="title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.text_field :memory_description, :value => "", id:"description", class:"validate", required:"required" %>
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <p>Choose a cover image for your memory:</p>
+        <div class="file-field input-field col s12 m6">
+          <div class="btn default-primary-color">
+            <span>Open File</span>
+            <%= f.file_field :memory_display_picture %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+      	<div class="col s12 m6">
+    			<%= f.fields_for :pictures do |f| %>
+    		    	<%= f.label "Add picture to memory" %>
+        			<%= f.file_field :picture_data %>
+        		<% end %>
+      	</div>
+      </div>     -->
+      <div class="row">
+        <div class="input-field col s12">
+          <%= button_tag( class: "waves-effect waves-light btn green show-loading") do %>
+            Create <i class="material-icons right">done</i>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      
+  <div class="black-background">
+    <div class="center-screen">
+      <h5 class="loading-title">Creating memory...</h5>
+      <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+      
+  
+</div>

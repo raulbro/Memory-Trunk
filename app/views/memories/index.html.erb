@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="h1_title">My Memories</h1>
+    	<div class="col s12 m6 right-align hide-on-small-only" style="margin-bottom: 20px">
+			<%= link_to memories_new_path, class:"waves-effect waves-light btn btn-wide green darken-1" do%>
+				New Memory<i class="material-icons right">add</i>
+			<% end %>
+		</div>
+	<div class="row">
+		<% @memories.each  do |memory| %> 
+			<div class="col s6 m3 memory-box-link">
+				<%= link_to memory_show_path(memory), :id => memory.id do %>
+					<div class="memory-box">
+						<%= image_tag memory.memory_display_picture.url(:medium), class:"memory-image" %>
+						<div class="title-text block">
+							<%= memory.memory_title %>
+						</div>
+						<div class="sub-text block truncate">
+							<%= memory.memory_description %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		<% end %>	
+	</div>
+</div>

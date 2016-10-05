@@ -1,0 +1,112 @@
+<%# #PROFILE INDEX
+	try to add this to avoid text going out of the div 	white-space: pre-line;
+ %>
+
+<%= render 'partials/menu' %>
+
+<br />
+<div class="row" style="width:51%">
+	<div class="large-12 columns">
+		<div class="radius right">
+			<% if current_user.profile %>
+				<%= link_to "Edit Profile", "edit", class:"button radius Obutton-profile "%>
+			<% else %>
+				<%= link_to "Create Profile", "new", class:"button radius tiny "%>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<% if current_user.profile %>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="large-6 columns ">
+				<div class="large-12 columns panel Opanel-style">
+						<div class="large-8 columns">
+							<%= image_tag @profile.profile_picture.url(:medium) %>
+						</div>
+						<br /> <br />
+						<div class="large-4 columns">
+							<strong> Name:  </strong>
+						</div>
+						<div class="large-8 columns">
+							<%= current_user.name %>
+						</div>
+						<div class="large-4 columns">
+							<strong> Last name:  </strong>
+						</div>
+						<div class="large-8 columns">
+							<%= current_user.last_name %>				
+						</div>
+						<div class="large-4 columns">
+							<strong> Born in:  </strong>
+						</div>
+						<div class="large-8 columns">
+							<%= @profile.city_born %>				
+						</div>
+						<div class="large-4 columns">
+							<strong> Date of birth:  </strong>
+						</div>
+						<div class="large-8 columns">
+							<%= @profile.date_of_birth %>
+						</div>
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Fears:  </strong>
+					</div><br /><br />
+					<div class="large-12 columns">
+						<%= simple_format(@profile.fear) %>
+					</div>
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Jobs:  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= @profile.job_history %>
+					</div>		
+				</div>
+			</div>
+			<div class="large-6 columns ">
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Biography:  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= simple_format(@profile.biography) %>
+					</div>		
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Hobbies:  </strong>
+					</div>
+					<div class="large-12 columns">
+						<%= @profile.hobbie %>
+					</div>		
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Dreams:  </strong>
+					</div><br /><br />
+					<div class="large-12 columns">
+						<%= simple_format(@profile.dream) %>
+					</div>	
+				</div>
+				<div class="large-12 columns panel Opanel-style">
+					<div class="large-12 columns"> 
+						<strong> Other:  </strong>
+					</div>
+					<div class="large-12 columns Osafe-text">
+						<%= @profile.other %>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="row panel callout">
+		<p> Please create a profile</p>
+	</div>
+<% end %>

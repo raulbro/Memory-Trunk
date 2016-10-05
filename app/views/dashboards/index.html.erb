@@ -1,0 +1,190 @@
+<%#DASHBOARD index %>
+
+<div class="container">
+	<h1 class="h1_title">Dashboard</h1>
+	
+	<div class="row border-bottom">
+		<div class="col s12 m6">
+			<div class="row">		
+				<div class="material-placeholder padding-10">
+					<img class="responsive-img" src="http://placehold.it/400x310?text=Picture">
+					<%# <%= image_tag @profile.profile_picture.url(:medium) %>
+				</div>
+			</div>
+		</div>
+		<div class="col s12 m6">
+			<div class="row">
+				<h2 class="h2-title">Welcome, <%= current_user.name %> <%= current_user.last_name %>!</h4>
+				<h3 class="h3-title">Here are some usefull links for you:</h5>
+				<ul class="link-utils">
+					<li>
+						<a href="#">
+							<i class="material-icons">edit</i>
+							<span>Edit my profile</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="material-icons">info</i>
+							<span>How to create memories</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="material-icons">help</i>
+							<span>Frequent Asked Questions</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	
+      	
+	<div class="row">
+		<div class="col s12 m6">
+			<h2 class="h2-title margin-0">MY MEMORIES</h2>
+		</div>
+		
+		<div class="col s12 m6 right-align hide-on-small-only">
+			<%= link_to memories_new_path, class:"waves-effect waves-light btn btn-wide green darken-1" do%>
+				New Memory<i class="material-icons right">add</i>
+			<% end %>
+		</div>
+		
+		<div class="col s12 m6 margin-top-10 hide-on-med-and-up">
+			<%= link_to memories_new_path, class:"waves-effect waves-light btn btn-wide green darken-1" do%>
+				New Memory<i class="material-icons right">add</i>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="row">
+		<% if @memories.count > 0 %>
+			<% @memories.each  do |memory| %>
+				<div class="col s6 m3 memory-box-link">
+					<%= link_to memory_show_path(memory), :id => memory.id do %>
+						<div class="memory-box">
+							<%= image_tag memory.memory_display_picture.url(:medium), class:"memory-image" %>
+							<div class="title-text block">
+								<%= memory.memory_title %>
+							</div>
+							<div class="sub-text block truncate">
+								<%= memory.memory_description %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		<% else %> 
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+			<div class="col s6 m3 memory-box-link">
+				<div class="memory-box">
+					<img src="http://placehold.it/250x150/1976d2/FFFFFF?text=Photo" class="memory-image">
+					<span class="title-text block">Title</span>
+					<span class="sub-text block truncate">A little description of the memory with limited characters</span>
+				</div>
+			</div>
+		<% end %>	
+	</div>
+	<div class="row border-bottom">
+		<div class="col s12">
+			<%= link_to memories_index_path do%>
+				<div class="valign-wrapper">
+					<i class="small material-icons">view_module</i>
+					<span class="text-small valign">View all memories...</span>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12">
+			<h2 class="h2-title margin-0">See all your files</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col s6 m3 dashboard-box-link">
+			<%= link_to pictures_index_path do%>
+				<div class="dashboard-box center purple darken-3">
+					<i class="large material-icons white-text">camera_alt</i>
+					<span class="dashboard-box-text white-text">Photos</span>
+				</div>
+			<% end %>
+		</div>
+		<div class="col s6 m3 dashboard-box-link">
+			<%= link_to videos_index_path do%>
+				<div class="dashboard-box center teal darken-4">
+					<i class="large material-icons white-text">videocam</i>
+					<span class="dashboard-box-text white-text">Videos</span>
+				</div>
+			<% end %>
+		</div>
+		<div class="col s6 m3 dashboard-box-link">
+			<%= link_to examples_path do%>
+				<div class="dashboard-box center amber darken-3">
+					<i class="large material-icons white-text">mic</i>
+					<span class="dashboard-box-text white-text">Audios</span>
+				</div>
+			<% end %>
+		</div>
+		<div class="col s6 m3 dashboard-box-link">
+			<%= link_to examples_path do%>
+				<div class="dashboard-box center pink darken-3">
+					<i class="large material-icons white-text">library_books</i>
+					<span class="dashboard-box-text white-text">Notes</span>
+				</div>
+			<% end %>
+		</div>
+	</div>
+			
+</div>

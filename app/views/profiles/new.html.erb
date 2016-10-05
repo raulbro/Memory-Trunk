@@ -1,0 +1,55 @@
+<%#  CREATE PROFILE %>
+
+<%= render 'partials/menu' %>
+
+<br />
+<div class="row">
+	<h1>Create Profile </h1>
+</div>
+
+<div class="row">
+	<%= form_for @profile, :url => {action: "create"} do |f| %>
+		<div class="row">
+			<strong> <%= f.label "Profile picture" %></strong>
+			<%= f.file_field :profile_picture %>
+		</div> 
+		<div class="row">
+			<%= f.label :date_of_birth %>
+			<%= f.date_select :date_of_birth %>
+		</div>
+		<div class="row">
+			<%= f.label :city_born%>
+			<%= f.text_field :city_born %>
+		</div> 
+		<div class="row">
+			<%= f.label :hobbie %>
+			<%= f.text_field :hobbie %>
+		</div> 
+		<div class="row">
+			<%= f.label :dream %>
+			<%= f.text_field :dream %>
+		</div> 
+		<div class="row">
+			<%= f.label :job_history %>
+			<%= f.text_field :job_history %>
+		</div> 
+		<div class="row">
+			<%= f.label :fear %>
+			<%= f.text_field :fear %>
+		</div> 
+		<div class="row">
+			<%= f.label :biography %>
+			<%= f.text_area :biography %>
+		</div>
+		<div class="row">
+			<%= f.label :other %>
+			<%= f.text_field :other %>
+		</div>
+		<div class="row">
+			<ul class="button-group radius right">
+				<li><%= f.submit "Create", class:"button tiny" %></li>
+				<li><%= link_to "Back", "index", class:"button tiny"%></li>
+			</ul>
+		</div>  
+	<%end%>
+</div>
